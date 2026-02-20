@@ -71,10 +71,10 @@ const Activities: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Page Header */}
-      <div className="bg-amber-50 py-12 px-4 border-b border-amber-100">
+      <div className="bg-[#0d2137] py-12 px-4 border-b border-white/10">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl font-black mb-2 text-[#0d2137]">استكشف برامجنا</h1>
-          <p className="text-[#0d2137]/60 text-lg">سجل حافل بالنجاحات وبرامج مستقبلية طموحة.</p>
+          <h1 className="text-3xl font-black mb-2 text-white">استكشف برامجنا</h1>
+          <p className="text-blue-100/70 text-lg">سجل حافل بالنجاحات وبرامج مستقبلية طموحة.</p>
         </div>
       </div>
 

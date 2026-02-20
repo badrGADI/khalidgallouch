@@ -53,24 +53,24 @@ const Gallery: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <section className="bg-amber-50 py-16 px-4 border-b border-amber-100">
+      <section className="bg-[#0d2137] py-16 px-4 border-b border-white/10">
         <div className="max-w-7xl mx-auto text-center">
           {selectedActivityId ? (
             <div>
                <button 
                  onClick={() => setSelectedActivityId(null)}
-                 className="flex items-center gap-2 text-amber-600 hover:text-amber-800 font-bold mb-4 mx-auto transition-colors"
+                 className="flex items-center gap-2 text-amber-500 hover:text-amber-400 font-bold mb-4 mx-auto transition-colors"
                >
                  <ArrowRight className="w-4 h-4" />
                  العودة للألبومات
                </button>
-               <h1 className="text-3xl md:text-4xl font-black text-[#0d2137] mb-2">{selectedActivity?.title}</h1>
-               <p className="text-[#0d2137]/60">{activityItems.length} عنصر في هذا الألبوم</p>
+               <h1 className="text-3xl md:text-4xl font-black text-white mb-2">{selectedActivity?.title}</h1>
+               <p className="text-blue-100/70">{activityItems.length} عنصر في هذا الألبوم</p>
             </div>
           ) : (
             <div>
-              <h1 className="text-4xl md:text-5xl font-black text-[#0d2137] mb-4">ألبومات الأنشطة</h1>
-              <p className="text-[#0d2137]/60 text-lg max-w-2xl mx-auto">
+              <h1 className="text-4xl md:text-5xl font-black text-white mb-4">ألبومات الأنشطة</h1>
+              <p className="text-blue-100/70 text-lg max-w-2xl mx-auto">
                 توثيق للحظات المميزة والأنشطة التي قمنا بها. اختر نشاطاً لمشاهدة صوره وفيديوهاته.
               </p>
             </div>

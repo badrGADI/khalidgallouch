@@ -33,10 +33,10 @@ const Blog: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-amber-50 py-20 border-b border-amber-100">
+      <section className="bg-[#0d2137] py-20 border-b border-white/10">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-black text-[#0d2137] mb-6">مدونة أنشطتي</h1>
-          <p className="text-[#0d2137]/60 text-lg leading-relaxed">
+          <h1 className="text-4xl md:text-5xl font-black text-white mb-6">مدونة أنشطتي</h1>
+          <p className="text-blue-100/70 text-lg leading-relaxed">
             مقالات، دروس، وتغطيات حصرية لكل ما يخص عالم الأنشطة والفعاليات في المغرب.
           </p>
         </div>

@@ -32,10 +32,10 @@ const Home: React.FC = () => {
         </div>
 
         <div className="max-w-7xl mx-auto text-center relative z-10 w-full">
-          <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full mb-6 border border-white/20">
+          {/* <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full mb-6 border border-white/20">
             <Star className="text-amber-400 w-4 h-4 fill-amber-400" />
             <span className="text-xs font-bold">أفضل منصة للأنشطة في المغرب</span>
-          </div>
+          </div> */}
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight max-w-4xl mx-auto">
             اللقاءات الرسمية للسيد خالد الكلوش <br/>
@@ -98,9 +98,9 @@ const Home: React.FC = () => {
 
             {/* Info Side */}
             <div className="p-10 md:p-14 flex flex-col justify-center text-white">
-              <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-400/40 text-amber-300 text-xs font-black px-4 py-2 rounded-full mb-6 w-fit">
+              {/* <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-400/40 text-amber-300 text-xs font-black px-4 py-2 rounded-full mb-6 w-fit">
                 🚀 مؤسس المنصة
-              </div>
+              </div> */}
               <h2 className="text-3xl md:text-4xl font-black mb-2 text-white">خالد الكلوش</h2>
               <p className="text-amber-200 font-bold mb-6">عضو اللجنة التنفيذية لحزب الاستقلال مستشار وزير النقل واللوجيستيك طالب باحث في سلك الدكتورة</p>
               <p className="text-white/70 leading-relaxed mb-8 text-lg">

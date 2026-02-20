@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex flex-col items-center gap-0 group pt-2 pb-2">
           <img 
-            src="/images/khalidicon.png" 
+            src="/images/iconkhalidblue.png" 
             alt="شعار" 
             className="h-60 w-auto object-contain group-hover:scale-110 transition-transform" 
           />
