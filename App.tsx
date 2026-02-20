@@ -17,6 +17,8 @@ import GalleryManager from './pages/admin/GalleryManager';
 import AdminDashboard from './pages/admin/Dashboard';
 
 import DebugSupabase from './pages/DebugSupabase';
+import Login from './pages/Login';
+import ProtectedRoute from './components/ProtectedRoute'; // Import ProtectedRoute
 
 const App: React.FC = () => {
   return (
@@ -29,13 +31,17 @@ const App: React.FC = () => {
             <Route path="/activities" element={<Activities />} />
             <Route path="/activities/:id" element={<ActivityDetail />} />
             
-            {/* Admin Routes */}
-            <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/admin/activities" element={<ActivitiesList />} />
-            <Route path="/admin/activities/new" element={<ActivityForm />} />
-            <Route path="/admin/activities/edit/:id" element={<ActivityForm />} />
-            <Route path="/admin/registrations" element={<RegistrationsList />} />
-            <Route path="/admin/gallery" element={<GalleryManager />} />
+            {/* Admin Routes - Protected */}
+            <Route path="/login" element={<Login />} />
+            
+            <Route element={<ProtectedRoute />}>
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/activities" element={<ActivitiesList />} />
+              <Route path="/admin/activities/new" element={<ActivityForm />} />
+              <Route path="/admin/activities/edit/:id" element={<ActivityForm />} />
+              <Route path="/admin/registrations" element={<RegistrationsList />} />
+              <Route path="/admin/gallery" element={<GalleryManager />} />
+            </Route>
 
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/about" element={<About />} />

@@ -1,14 +1,34 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { LayoutDashboard, Calendar, Users, Settings, ArrowRight, Images } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { LayoutDashboard, Calendar, Users, Settings, ArrowRight, Images, LogOut } from 'lucide-react';
+import { supabase } from '../../src/lib/supabase';
 
 const AdminDashboard: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    navigate('/login');
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 py-16 px-4">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-black text-[#0d2137] mb-2">لوحة التحكم</h1>
-        <p className="text-gray-500 text-lg mb-12">مرحباً بك في لوحة تحكم الموقع.</p>
+        <div className="flex justify-between items-center mb-12">
+           <div>
+             <h1 className="text-4xl font-black text-[#0d2137] mb-2">لوحة التحكم</h1>
+             <p className="text-gray-500 text-lg">مرحباً بك في لوحة تحكم الموقع.</p>
+           </div>
+           
+           <button 
+             onClick={handleLogout}
+             className="flex items-center gap-2 bg-white border border-gray-200 text-red-500 px-6 py-3 rounded-xl font-bold hover:bg-red-50 hover:border-red-200 transition-all shadow-sm"
+           >
+             <LogOut className="w-5 h-5" />
+             تسجيل الخروج
+           </button>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           
