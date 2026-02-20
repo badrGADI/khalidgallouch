@@ -27,6 +27,7 @@ const Navbar: React.FC = () => {
           <img 
             src="/images/iconkhalidblue.png" 
             alt="شعار" 
+            style={{ marginTop: '12px' }}
             className="h-60 w-auto object-contain group-hover:scale-110 transition-transform" 
           />
           {/* <span className="text-white text-xl font-black tracking-tight mt-1">خالد الكلوش</span> */}

@@ -37,9 +37,9 @@ const Home: React.FC = () => {
             <span className="text-xs font-bold">أفضل منصة للأنشطة في المغرب</span>
           </div> */}
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight max-w-4xl mx-auto">
-            اللقاءات الرسمية للسيد خالد الكلوش <br/>
-            <span className="text-amber-400">عضو اللجنة التنفيذية لحزب الاستقلال</span>
+          <h1 className="text-2xl md:text-3xl lg:text-5xl font-black mb-6 leading-tight max-w-4xl mx-auto">
+            اللقاءات الرسمية للسيد <span className="inline-block border-2 border-amber-400 px-4 py-2 rounded-2xl mx-1 mt-2 md:mt-0">خالد الكلوش</span>
+            <span className="block text-amber-400 mt-4">عضو اللجنة التنفيذية لحزب الاستقلال</span>
           </h1>
           
           <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
