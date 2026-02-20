@@ -210,10 +210,10 @@ const GalleryManager: React.FC = () => {
                           <label className="block text-sm font-bold text-gray-700 mb-2">التصنيف</label>
                           <input required value={newItem.category} onChange={e => setNewItem({...newItem, category: e.target.value})} className="w-full bg-gray-50 border border-gray-100 rounded-xl p-3" list="cat-suggestions" />
                           <datalist id="cat-suggestions">
+                            <option value="أنشطة سياسية" />
+                            <option value="أنشطة جمعوية" />
+                            <option value="تكوينات" />
                             <option value="عام" />
-                            <option value="تعليمي" />
-                            <option value="رياضي" />
-                            <option value="ثقافي" />
                           </datalist>
                         </div>
         

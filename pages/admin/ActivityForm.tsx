@@ -148,12 +148,9 @@ const ActivityForm: React.FC = () => {
                 className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-amber-500 focus:outline-none appearance-none"
               >
                 <option value="" disabled>اختر التصنيف</option>
-                <option value="تعليمي">تعليمي</option>
-                <option value="رياضي">رياضي</option>
-                <option value="ثقافي">ثقافي</option>
-                <option value="تقنية">تقنية</option>
-                <option value="تطوع">تطوع</option>
-                <option value="بيئي">بيئي</option>
+                <option value="أنشطة سياسية">أنشطة سياسية</option>
+                <option value="أنشطة جمعوية">أنشطة جمعوية</option>
+                <option value="تكوينات">تكوينات</option>
                 <option value="أخرى">أخرى</option>
               </select>
             </div>

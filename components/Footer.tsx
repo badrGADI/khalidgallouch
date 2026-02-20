@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-bold text-white mb-6">تصنيفات الأنشطة</h4>
             <ul className="space-y-4">
-              {['أنشطة تعليمية', 'أنشطة رياضية', 'أنشطة ثقافية', 'أنشطة تقنية', 'تطوع'].map((item, i) => (
+              {['أنشطة سياسية', 'أنشطة جمعوية', 'تكوينات'].map((item, i) => (
                 <li key={i}>
                   <Link to="/activities" className="text-blue-100/70 hover:text-amber-500 transition-colors">{item}</Link>
                 </li>
