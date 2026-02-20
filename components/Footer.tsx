@@ -9,11 +9,13 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="bg-[#0d2137] p-2 rounded-lg">
-                <Rocket className="text-white w-6 h-6" />
-              </div>
-              <span className="text-2xl font-bold text-[#0d2137]">أنشطتي</span>
+            <Link to="/" className="block mb-6">
+              <img 
+                src="/images/khalidicon.png" 
+                alt="شعار" 
+                style={{ width: '233px', height: '225px', marginTop: '-98px', marginBottom: '-85px' }}
+                className="object-contain"
+              />
             </Link>
             <p className="text-gray-500 leading-relaxed mb-8">
               منصتكم الأولى لاكتشاف ومشاركة الأنشطة الفعالة. نؤمن بأن الحركة هي الحياة، والتعلم المستمر هو سر النجاح.
