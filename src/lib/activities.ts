@@ -2,11 +2,16 @@
 import { supabase } from './supabase';
 import { Activity } from '../../types';
 
-export const getActivities = async () => {
-  const { data, error } = await supabase
+export const getActivities = async (includeHidden = false) => {
+  let query = supabase
     .from('activities')
-    .select('*')
-    .order('created_at', { ascending: false });
+    .select('*');
+
+  if (!includeHidden) {
+    query = query.or('is_hidden.is.null,is_hidden.eq.false');
+  }
+
+  const { data, error } = await query.order('created_at', { ascending: false });
 
   if (error) {
     console.error('Error fetching activities:', error);

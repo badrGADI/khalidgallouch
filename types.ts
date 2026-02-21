@@ -12,6 +12,7 @@ export interface Activity {
   category: string;
   image: string;
   status: ActivityStatus;
+  is_hidden?: boolean;
   gallery?: string[]; // مصفوفة لصور النشاط الخاص
   participants?: number;
   rating?: number;

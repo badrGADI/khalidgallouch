@@ -17,6 +17,7 @@ const ActivityForm: React.FC = () => {
     description: '',
     category: '',
     status: ActivityStatus.UPCOMING,
+    is_hidden: false,
     image: '',
     gallery: [],
     participants: 0,
@@ -176,6 +177,19 @@ const ActivityForm: React.FC = () => {
                 <option value={ActivityStatus.UPCOMING}>قادم (جديد)</option>
                 <option value={ActivityStatus.COMPLETED}>منتهي (أرشيف)</option>
               </select>
+            </div>
+
+            <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl border border-gray-100 mt-2">
+              <input
+                type="checkbox"
+                id="is_hidden"
+                checked={formData.is_hidden || false}
+                onChange={e => setFormData({ ...formData, is_hidden: e.target.checked })}
+                className="w-5 h-5 text-amber-600 border-gray-300 rounded focus:ring-amber-500"
+              />
+              <label htmlFor="is_hidden" className="text-sm font-bold text-gray-700 cursor-pointer">
+                إخفاء النشاط من الموقع العام
+              </label>
             </div>
           </div>
 

@@ -1,8 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Plus, Edit, Trash2, Calendar, Tag, CheckCircle, Clock } from 'lucide-react';
-import { getActivities, deleteActivity } from '../../src/lib/activities';
+import { Plus, Edit, Trash2, Calendar, Tag, CheckCircle, Clock, Eye, EyeOff } from 'lucide-react';
+import { getActivities, deleteActivity, updateActivity } from '../../src/lib/activities';
 import { Activity, ActivityStatus } from '../../types';
 
 const ActivitiesList: React.FC = () => {
@@ -11,7 +11,7 @@ const ActivitiesList: React.FC = () => {
 
   const fetchActivities = async () => {
     setLoading(true);
-    const data = await getActivities();
+    const data = await getActivities(true); // Include hidden activities in admin list
     setActivities(data);
     setLoading(false);
   };
@@ -29,6 +29,19 @@ const ActivitiesList: React.FC = () => {
         alert('حدث خطأ أثناء الحذف');
         console.error(error);
       }
+    }
+  };
+
+  const handleToggleVisibility = async (activity: Activity) => {
+    try {
+      const newHiddenStatus = !activity.is_hidden;
+      await updateActivity(activity.id, { is_hidden: newHiddenStatus });
+      setActivities(activities.map(a => 
+        a.id === activity.id ? { ...a, is_hidden: newHiddenStatus } : a
+      ));
+    } catch (error) {
+      alert('حدث خطأ أثناء تحديث الحالة');
+      console.error(error);
     }
   };
 
@@ -58,6 +71,7 @@ const ActivitiesList: React.FC = () => {
                   <th className="px-6 py-4 font-black text-[#0d2137]">التاريخ</th>
                   <th className="px-6 py-4 font-black text-[#0d2137]">التصنيف</th>
                   <th className="px-6 py-4 font-black text-[#0d2137]">للحالة</th>
+                  <th className="px-6 py-4 font-black text-[#0d2137]">الظهور</th>
                   <th className="px-6 py-4 font-black text-[#0d2137]">إجراءات</th>
                 </tr>
               </thead>
@@ -96,6 +110,19 @@ const ActivitiesList: React.FC = () => {
                           قادم
                         </span>
                       )}
+                    </td>
+                    <td className="px-6 py-4">
+                      <button
+                        onClick={() => handleToggleVisibility(activity)}
+                        className={`p-2 rounded-lg transition-all ${
+                          activity.is_hidden 
+                            ? 'text-gray-400 hover:bg-gray-100' 
+                            : 'text-green-600 hover:bg-green-100'
+                        }`}
+                        title={activity.is_hidden ? 'إظهار' : 'إخفاء'}
+                      >
+                        {activity.is_hidden ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                      </button>
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-2">

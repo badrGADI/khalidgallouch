@@ -30,6 +30,9 @@ const Activities: React.FC = () => {
   }, []);
 
   const filteredActivities = activities.filter(activity => {
+    // Only show visible activities
+    if (activity.is_hidden) return false;
+
     const matchesFilter = filter === 'all' || activity.status === filter;
     const matchesSearch = activity.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
                           activity.category.toLowerCase().includes(searchTerm.toLowerCase());

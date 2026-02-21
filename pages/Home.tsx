@@ -12,8 +12,8 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     const fetchActivities = async () => {
-      const data = await getActivities();
-      // Show only top 3, preferably upcoming or recent
+      const data = await getActivities(); // Only gets visible ones by default
+      // Show only top 3
       setFeaturedActivities(data.slice(0, 3));
     };
     fetchActivities();
