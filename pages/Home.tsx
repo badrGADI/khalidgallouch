@@ -107,11 +107,11 @@ const Home: React.FC = () => {
               خالد الكلوش فاعل سياسي شاب من أبناء أولاد تايمة، تدرج داخل هياكل حزب الاستقلال منذ سنة 2004 إلى أن أصبح سنة 2024 عضوًا في لجنته التنفيذية، مجسّدًا مسارًا قائمًا على العمل الجاد والانضباط.<br></br>
 ويعد نموذجا للشباب المغربي الطموح الذي اختار الاشتغال في صمت، واضعا خدمة المجتمع ونكران الذات في صلب مسيرته
               </p>
-              <div className="flex flex-wrap gap-3">
+              {/* <div className="flex flex-wrap gap-3">
                 <span className="bg-white/15 border border-white/20 text-white text-sm font-bold px-4 py-2 rounded-full">📚 تعليم</span>
                 <span className="bg-white/15 border border-white/20 text-white text-sm font-bold px-4 py-2 rounded-full">🎨 إبداع</span>
                 <span className="bg-white/15 border border-white/20 text-white text-sm font-bold px-4 py-2 rounded-full">🤝 تطوع</span>
-              </div>
+              </div> */}
               <div className="mt-10">
                 <Link
                   to="/about"
