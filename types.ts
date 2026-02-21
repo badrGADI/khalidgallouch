@@ -36,6 +36,7 @@ export interface BlogPost {
   date: string;
   author: string;
   image: string;
+  external_url?: string;
 }
 
 

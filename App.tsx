@@ -14,6 +14,8 @@ import ActivitiesList from './pages/admin/ActivitiesList';
 import ActivityForm from './pages/admin/ActivityForm';
 import RegistrationsList from './pages/admin/RegistrationsList';
 import GalleryManager from './pages/admin/GalleryManager';
+import BlogsList from './pages/admin/BlogsList';
+import BlogForm from './pages/admin/BlogForm';
 import AdminDashboard from './pages/admin/Dashboard';
 
 import DebugSupabase from './pages/DebugSupabase';
@@ -41,6 +43,9 @@ const App: React.FC = () => {
               <Route path="/admin/activities/edit/:id" element={<ActivityForm />} />
               <Route path="/admin/registrations" element={<RegistrationsList />} />
               <Route path="/admin/gallery" element={<GalleryManager />} />
+              <Route path="/admin/blogs" element={<BlogsList />} />
+              <Route path="/admin/blogs/new" element={<BlogForm />} />
+              <Route path="/admin/blogs/edit/:id" element={<BlogForm />} />
             </Route>
 
             <Route path="/gallery" element={<Gallery />} />

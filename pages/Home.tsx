@@ -5,9 +5,12 @@ import { ArrowLeft, Star, Target, BookOpen, Cpu, Globe, Rocket, X, BarChart2, Us
 import ActivityCard from '../components/ActivityCard';
 import { Activity, ActivityStatus } from '../types';
 import { getActivities } from '../src/lib/activities';
+import { getBlogs } from '../src/lib/blogs';
+import { BlogPost } from '../types';
 
 const Home: React.FC = () => {
   const [featuredActivities, setFeaturedActivities] = useState<Activity[]>([]);
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [statsActivity, setStatsActivity] = useState<Activity | null>(null);
 
   useEffect(() => {
@@ -16,7 +19,12 @@ const Home: React.FC = () => {
       // Show only top 3
       setFeaturedActivities(data.slice(0, 3));
     };
+    const fetchBlogs = async () => {
+      const data = await getBlogs();
+      setBlogPosts(data.slice(0, 3));
+    };
     fetchActivities();
+    fetchBlogs();
   }, []);
   return (
     <div className="overflow-hidden">
@@ -181,64 +189,47 @@ const Home: React.FC = () => {
           </Link>
         </div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            {
-              title: 'أهمية التخطيط للأنشطة المدرسية الموازية',
-              excerpt: 'تعتبر الأنشطة الموازية جزءاً لا يتجزأ من المنظومة التعليمية الحديثة، فهي تساهم في صقل شخصية التلميذ.',
-              date: '12 مايو 2024',
-              author: 'أحمد العلمي',
-              image: 'https://picsum.photos/seed/edu/800/600',
-              category: 'تعليم'
-            },
-            {
-              title: 'دور التكنولوجيا في إنجاح الفعاليات الثقافية',
-              excerpt: 'في عصر الرقمنة، أصبح استخدام الأدوات التقنية ضرورة ملحة لتنظيم فعاليات تتسم بالكفاءة والاحترافية.',
-              date: '5 مايو 2024',
-              author: 'فاطمة الزهراء',
-              image: 'https://picsum.photos/seed/tech/800/600',
-              category: 'تقنية'
-            },
-            {
-              title: 'كيف تزيد من تفاعل الجمهور في نشاطك القادم؟',
-              excerpt: 'التفاعل هو مفتاح النجاح لأي نشاط. سنناقش 5 استراتيجيات فعالة لجذب انتباه الحضور ومشاركتهم.',
-              date: '28 أبريل 2024',
-              author: 'ياسين بناني',
-              image: 'https://picsum.photos/seed/engagement/800/600',
-              category: 'تطوير'
-            }
-          ].map((post, i) => (
-            <article key={i} className="group bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col">
-              <div className="h-52 overflow-hidden relative">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <span className="absolute top-4 right-4 bg-amber-600 text-white text-xs font-black px-3 py-1.5 rounded-full">
-                  {post.category}
-                </span>
-              </div>
-              <div className="p-7 flex flex-col flex-grow">
-                <div className="flex items-center gap-3 text-xs text-gray-400 mb-4">
-                  <span>{post.date}</span>
-                  <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-                  <span>{post.author}</span>
+          {blogPosts.length > 0 ? (
+            blogPosts.map((post) => (
+              <article key={post.id} className="group bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col">
+                <div className="h-52 overflow-hidden relative">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <span className="absolute top-4 right-4 bg-amber-600 text-white text-xs font-black px-3 py-1.5 rounded-full">
+                    {post.category || 'عام'}
+                  </span>
                 </div>
-                <h3 className="text-xl font-black text-gray-900 mb-3 leading-snug group-hover:text-[#0d2137] transition-colors flex-grow">
-                  {post.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-2">
-                  {post.excerpt}
-                </p>
-                <Link
-                  to="/blog"
-                  className="text-amber-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
-                >
-                  اقرأ المزيد <ArrowLeft className="w-4 h-4" />
-                </Link>
-              </div>
-            </article>
-          ))}
+                <div className="p-7 flex flex-col flex-grow">
+                  <div className="flex items-center gap-3 text-xs text-gray-400 mb-4">
+                    <span>{post.date}</span>
+                  </div>
+                  <div className="mb-4">
+                    <span className="inline-flex items-center gap-1.5 bg-[#0d2137] text-white px-3 py-1 rounded text-[11px] font-black mb-2 shadow-sm">
+                       <Globe className="w-3 h-3" />
+                       {post.author}
+                    </span>
+                    <h3 className="text-xl font-black text-gray-900 leading-snug group-hover:text-[#0d2137] transition-colors flex-grow">
+                      {post.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-2">
+                    {post.excerpt}
+                  </p>
+                  <button
+                    onClick={() => post.external_url && window.open(post.external_url, '_blank')}
+                    className="text-amber-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all w-fit"
+                  >
+                    اقرأ المزيد <ArrowLeft className="w-4 h-4" />
+                  </button>
+                </div>
+              </article>
+            ))
+          ) : (
+            <div className="col-span-3 text-center text-gray-400 py-10">لا توجد مقالات حالياً.</div>
+          )}
         </div>
       </section>
 

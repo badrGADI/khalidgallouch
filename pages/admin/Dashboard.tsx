@@ -72,6 +72,19 @@ const AdminDashboard: React.FC = () => {
             </div>
           </Link>
 
+          {/* Blog Card */}
+          <Link to="/admin/blogs" className="group bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all">
+            <div className="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <LayoutDashboard className="w-7 h-7" />
+            </div>
+            <h3 className="text-2xl font-black text-[#0d2137] mb-2">إدارة المدونة</h3>
+            <p className="text-gray-400 mb-6 line-clamp-2">إضافة وتعديل وحذف المقالات في مدونة الموقع.</p>
+            <div className="flex items-center text-amber-600 font-bold gap-2 group-hover:gap-3 transition-all">
+              إدارة المقالات
+              <ArrowLeft className="w-5 h-5" />
+            </div>
+          </Link>
+
         </div>
       </div>
     </div>
