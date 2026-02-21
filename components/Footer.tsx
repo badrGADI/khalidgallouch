@@ -18,7 +18,8 @@ const Footer: React.FC = () => {
               />
             </Link>
             <p className="text-blue-100/70 leading-relaxed mb-8">
-              منصتكم الأولى لاكتشاف ومشاركة الأنشطة الفعالة. نؤمن بأن الحركة هي الحياة، والتعلم المستمر هو سر النجاح.
+اللقاءات الرسمية للسيد خالد الكلوش
+عضو اللجنة التنفيذية لحزب الاستقلال
             </p>
             <div className="flex gap-4">
               {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
@@ -77,10 +78,10 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-blue-100/40 text-sm">
-            © 2024 جميع الحقوق محفوظة لWin Way Business.
+          <p className="text-white text-sm">
+            © 2024 جميع الحقوق محفوظة ل Vision Way Media.
           </p>
-          <div className="flex items-center gap-2 text-sm text-blue-100/40">
+          <div className="flex items-center gap-2 text-sm text-white">
             تم التطوير بكل <Heart className="w-4 h-4 text-red-500 fill-red-500" /> في المغرب
           </div>
         </div>
