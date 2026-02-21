@@ -117,8 +117,7 @@ const Home: React.FC = () => {
                   to="/about"
                   className="inline-flex items-center gap-2 bg-amber-500 text-white font-black px-8 py-4 rounded-xl hover:bg-amber-600 transition-all shadow-xl text-base"
                 >
-                  تعرف على القصة كاملة
-                  <ArrowLeft className="w-5 h-5" />
+تعرف أكثر على خالد الكلوش                  <ArrowLeft className="w-5 h-5" />
                 </Link>
               </div>
             </div>

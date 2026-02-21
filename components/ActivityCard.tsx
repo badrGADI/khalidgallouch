@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Tag, CheckCircle, Clock, Image as ImageIcon, UserPlus, BarChart2 } from 'lucide-react';
+import { Calendar, Tag, CheckCircle, Clock, Eye, UserPlus, BarChart2 } from 'lucide-react';
 import { Activity, ActivityStatus } from '../types';
 
 interface ActivityCardProps {
@@ -53,7 +53,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, onRegister, onSta
             to={`/activities/${activity.id}`}
             className="flex items-center justify-center gap-2 bg-amber-50 text-[#0d2137] py-4 rounded-2xl font-black hover:bg-amber-100 transition-all border border-amber-100"
           >
-            <ImageIcon className="w-5 h-5" />
+            <Eye className="w-5 h-5" />
             التفاصيل
           </Link>
           
